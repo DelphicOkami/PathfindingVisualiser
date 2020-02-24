@@ -21,3 +21,11 @@
     width: 90%;
     display: inline-block;
 }
+
+.square.start{
+    background-color: aquamarine;
+}
+
+.square.end{
+    background-color: crimson;
+}
