@@ -27,11 +27,8 @@ class Grid extends React.Component {
         const gridWidth = viewWidth * 0.9;
         const gridHeight = viewHeight * 0.9;
 
-        const numberrows = Math.ceil(gridHeight / 36);
-        const rowlength = Math.ceil(gridWidth / 36);
-
-        console.log("rowlength: " + rowlength);
-        console.log("number: " + numberrows)
+        const numberrows = Math.floor(gridHeight / 27);
+        const rowlength = Math.ceil(gridWidth / 27) + 1;
 
         let rows = [];
         let count = 0;
@@ -42,9 +39,8 @@ class Grid extends React.Component {
                 filledRows.push(this.renderSquare(count));
                 count ++;
             }
-            if (filledRows.length === rowlength){
-                rows.push(<div className="row" key={i}>{filledRows}</div>);
-            }
+            rows.push(<div className="row" key={i}>{filledRows}</div>);
+    
         }
         return(rows);
     }
