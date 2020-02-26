@@ -44,8 +44,15 @@ export default class Visualiser extends React.Component {
       }
 
     componentDidMount() {
-        const grid = this.getBlankGrid(1920,952);
-        this.setState({grid});
+        const viewHeight = window.innerHeight;
+        const viewWidth = window.innerWidth;
+        const grid = this.getBlankGrid(viewWidth,viewHeight);
+
+        this.setState({
+            viewWidth,
+            viewHeight,
+            grid
+        });
     }
 
     render() {
@@ -82,9 +89,6 @@ export default class Visualiser extends React.Component {
         const startRow = Math.round(numberOfRows / 2);
         const startCol = Math.round(rowLength / 4);
         const endCol = Math.round(rowLength / 4 * 3);
-
-        console.log("start: " + startRow + "," + startCol);
-        console.log("end: " + startRow + "," + endCol);
 
         let rows = [];
         let count = 0;
